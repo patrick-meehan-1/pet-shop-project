@@ -1,4 +1,4 @@
-from .models import Category, Product
+from .models import Category, Product, Pet
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -13,3 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 
+class PetAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description']
+admin.site.register(Pet, PetAdmin)

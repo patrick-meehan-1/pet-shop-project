@@ -22,6 +22,25 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Pet(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    name = models.CharField(max_length=250, unique=True)
+    description = models.TextField(blank = True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Pet'
+        verbose_name_plural = 'Pets'
+
+    def get_absolute_url(self):
+        return reverse('shop:products_by_pet', args=[self.id])
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     id = models.UUIDField(
         primary_key=True,
@@ -36,6 +55,8 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, blank = True, null= True)
     updated = models.DateTimeField(auto_now=True, blank = True, null= True)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+
 
     class Meta:
         ordering = ('name',)
