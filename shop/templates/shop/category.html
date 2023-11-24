@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+ {% if category %}
+ {{ category.description|truncatewords:155 }}
+ {% else %}
+ Welcome to Happy Panda, where you find everything for your little pal!
+ {% endif %}
+{% endblock %}
+{% block title %}
+ {% if category %}
+ {{ category.name }} - Happy Panda Pet Store
+ {% else %}
+ See Our Pet Supplies - Happy Panda
+ {% endif %}
+{% endblock %}
+{% block content %}
+ <!--Breadcrumb navigation-->
+ {% if category %}
+ <div>
+ <div>
+ <p><a href="{% url 'shop:all_products' %}">Our Pet Supplies</a> | {{category.name}}</p>
+ </div>
+ </div>
+ {% endif %}
+ <div>
+ {% if category %}
+ <img src="{{category.image.url}}" alt="{{category.name}}">
+ </div>
+ <br>
+5
+ <div>
+ <h1>{{category.name}}</h1>
+ <p>{{category.description}}</p>
+ </div>
+ {% else %}
+ <img src="{% static 'images/banner.png' %}" alt="Our Products Collection">
+ </div>
+ <br>
+ <div>
+ <h1 >Our Pet Supplies Collection</h1>
+ <p></p>
+ </div>
+ {% endif %}
+ <div>
+ <div>
+ {% for product in prods %}
+ <div>
+ <div>
+ <a class ="img" href=""><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+ <div>
+ <h4>{{product.name}}</h4>
+ <p>€{{product.price}}</p>
+ </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ <br>
+ </div>
+{% endblock %}
