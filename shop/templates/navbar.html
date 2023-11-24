@@ -1,6 +1,10 @@
 <nav>
     <ul>
     <li><a href = "{% url 'shop:all_products' %}">All Products</a></li>
+    {% for cat in links %}
+        <a href = "{{ cat.get_absolute_url }}"> {{cat.name}}</a>
+        <br>
+    {% endfor %}
     <li>Your Cart</li>
     </ul>
    </nav>
