@@ -1,10 +1,29 @@
-<nav>
-    <ul>
-    <li><a href = "{% url 'shop:all_products' %}">All Products</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" ariacontrols="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" ariaexpanded="false">
+    Shop
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" href="{% url 'shop:all_products' %}">All Products</a></li>
     {% for cat in links %}
-        <a href = "{{ cat.get_absolute_url }}"> {{cat.name}}</a>
-        <br>
+    <li><a class="dropdown-item" href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
     {% endfor %}
-    <li>Your Cart</li>
     </ul>
-   </nav>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Your Cart</a>
+    </li>
+    </ul>
+    <form class="d-flex" action="" method="get">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+    </div>
+    </nav>

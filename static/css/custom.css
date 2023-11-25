@@ -1,0 +1,38 @@
+/****Navbar****/
+
+.nav-item {
+    letter-spacing: .1em;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dropdown-item {
+    font-size: 18px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+
+/* change the color of the nav bar items  */
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+
+/* change the color of the dropdown items */
+
+.dropdown-menu .dropdown-item {
+    color: rgb(0, 0, 0);
+}
+
+nav {
+    border-radius: 1em;
+    border-style: double;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(149, 152, 156, 1) 100%);
+}
+
+#body-background {
+    background: linear-gradient(184deg, rgba(250, 250, 250, 1) 0%, rgba(149, 152, 156, 1) 100%);
+}
