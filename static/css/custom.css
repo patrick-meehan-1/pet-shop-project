@@ -31,9 +31,13 @@
 /* change style of the navbar itself */
 
 nav {
-    border-radius: 1em;
-    border-style: double;
+    border-radius: 2em;
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
     background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(149, 152, 156, 1) 100%);
+}
+
+nav:hover {
+    box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
 }
 
 
@@ -44,14 +48,53 @@ nav {
 }
 
 
-/****Footer****/
+/****Category page****/
 
-.my_footer {
-    background-color: #f8f9fa;
-    height: 60px;
+.my_row_class {
+    padding-top: 15px;
 }
 
-.my_footer p {
-    padding-top: 20px;
+.my_row_class .mx-auto p {
+    color: #000;
     font-size: 14px;
+}
+
+.my_row_class .mx-auto p a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/****Category page****/
+
+.cat_image {
+    width: 100%;
+    height: auto;
+    border-radius: 2em;
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.cat_image:hover {
+    box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
+}
+
+.cat_title {
+    letter-spacing: .1em;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cat_image_padding {
+    padding-top: 5px;
+}
+
+.banner_img {
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.header_img:hover {
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }

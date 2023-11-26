@@ -17,28 +17,28 @@
 {% block content %}
  <!--Breadcrumb navigation-->
  {% if category %}
- <div>
- <div>
+ <div class="row my_row_class">
+ <div class="mx-auto">
  <p><a href="{% url 'shop:all_products' %}">Our Pet Supplies</a> | {{category.name}}</p>
  </div>
  </div>
  {% endif %}
- <div>
+ <div class="mx-auto">
  {% if category %}
- <img src="{{category.image.url}}" alt="{{category.name}}">
+ <img class="cat_image" src="{{category.image.url}}" alt="{{category.name}}">
  </div>
  <br>
  <div>
- <h1>{{category.name}}</h1>
- <p>{{category.description}}</p>
+ <h1 class="text-center cat_title">{{category.name}}</h1>
+ <p class="test-justify">{{category.description}}</p>
  </div>
  {% else %}
- <img src="{% static 'images/banner.png' %}" alt="Our Products Collection">
+ <img class="banner_img cat_image cat_image_padding" src="{% static 'images/banner.png' %}" alt="Our Products Collection">
  </div>
  <br>
  <div>
- <h1 >Our Pet Supplies Collection</h1>
- <p></p>
+ <h1 class="text-center cat_title">Our Pet Supplies Collection</h1>
+ <p class="text-justify"></p>
  </div>
  {% endif %}
  <div>
