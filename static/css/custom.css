@@ -27,12 +27,31 @@
     color: rgb(0, 0, 0);
 }
 
+
+/* change style of the navbar itself */
+
 nav {
     border-radius: 1em;
     border-style: double;
     background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(149, 152, 156, 1) 100%);
 }
 
+
+/* change color of background on the page */
+
 #body-background {
     background: linear-gradient(184deg, rgba(250, 250, 250, 1) 0%, rgba(149, 152, 156, 1) 100%);
+}
+
+
+/****Footer****/
+
+.my_footer {
+    background-color: #f8f9fa;
+    height: 60px;
+}
+
+.my_footer p {
+    padding-top: 20px;
+    font-size: 14px;
 }
