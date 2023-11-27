@@ -33,7 +33,7 @@
  <p class="test-justify">{{category.description}}</p>
  </div>
  {% else %}
- <img class="banner_img cat_image cat_image_padding" src="{% static 'images/banner.png' %}" alt="Our Products Collection">
+ <a href=" {% url 'shop:all_products' %} "><img class="banner_img cat_image cat_image_padding" src="{% static 'images/banner.png' %}" alt="Our Products Collection"></a>
  </div>
  <br>
  <div>
@@ -41,13 +41,14 @@
  <p class="text-justify"></p>
  </div>
  {% endif %}
- <div>
- <div>
- {% for product in prods %}
- <div>
- <div>
- <a class ="img" href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
- <div>
+ <div class="container">
+<div class="row mx-auto">
+{% for product in prods %}
+<div class="my_bottom_margin col-9 col-lg-4 col-sm-12 col-md-4">
+<div class="card text-center" style="min-width:18rem;">
+<a class ="img" href="{{product.get_absolute_url}}"><img class="card-img-top my_image"src="{{product.image.url}}" alt="{{product.name}}"></a>
+<div class="card-box card-body">
+
  <h4>{{product.name}}</h4>
  <p>€{{product.price}}</p>
  </div>

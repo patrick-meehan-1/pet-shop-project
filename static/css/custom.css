@@ -98,3 +98,82 @@ nav:hover {
 .header_img:hover {
     box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
+
+.my_bottom_margin {
+    margin-bottom: 10px;
+}
+
+.card-body h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    border-radius: 2em;
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.card:hover {
+    box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
+}
+
+
+/****Product Page****/
+
+.my_prod_row_class {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.my_prod_row_class .mx-auto p {
+    color: #000;
+    font-size: 14px;
+}
+
+.my_prod_row_class .mx-auto p a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.my_prod_row_class .mx-auto p a:hover {
+    color: #b300ff;
+}
+
+.prod_img {
+    border-radius: 2em;
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.prod_img:hover {
+    box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
+}
+
+.my_prod_title {
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.my_title {
+    text-transform: uppercase;
+}
+
+.my_prod_text {
+    padding-right: 20px;
+}
+
+.cart-button {
+    box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.cart-button:hover {
+    box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
+}
