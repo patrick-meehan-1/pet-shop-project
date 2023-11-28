@@ -218,3 +218,9 @@ nav:hover {
     letter-spacing: .2em;
     font-size: 12px;
 }
+
+.my-sign-up-form {
+    padding: 1em;
+    background-color: transparent;
+    --bs-bg-opacity: 0;
+}
