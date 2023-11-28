@@ -1,11 +1,16 @@
 {% load static %}
+{% load bootstrap_icons %}
+
 <header>
+
  <div style="text-align: center;">
     <a href="{% url 'shop:all_products' %}">
- <img class="header_img" src="{% static 'images/panda_wave.gif' %}" alt="Happy Panda Pet Store">
  <div class="container">
    <div class="my_custom_menu">
        <ul>
+         <li>
+            <img class="header_img" src="{% static 'images/panda_wave.gif' %}" alt="Happy Panda Pet Store">
+         </li>
            {% if user.is_authenticated %}
            <li>
                Welcome, <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" 
@@ -13,14 +18,14 @@
                <i class="fas fa-user-circle"></i></a>
            </li>
            <li>
-               <a href="{% url 'logout' %}">Sign Out <i class="fas fa-sign-out-alt"></i></a>
+               <a class="bold-link" href="{% url 'logout' %}">Sign Out <i class="fas fa-sign-out-alt"></i></a>
            </li>
            {% else %}
            <li>
-               <a href="{% url 'signup' %}">Sign Up <i class="fas fa-user-plus"></i></a>
+               <a class="bold-link" href="{% url 'signup' %}">Sign Up <i class="fa-solid fa-plus fa-bounce" style="color: #db80d3;"></i></a>
            </li>
            <li>
-               <a href="{% url 'login' %}">Sign In <i class="fas fa-sign-in-alt"></i></a>
+               <a class="bold-link" href="{% url 'login' %}">Sign In<i class="fa-solid fa-right-to-bracket fa-bounce" style="color: #c398d2;"></i></a>
            </li>
            {% endif %}
        </ul>
@@ -29,4 +34,5 @@
 </div>
 
  </div>
+ <script src="https://kit.fontawesome.com/7ae8cc277d.js" crossorigin="anonymous"></script>
 </header>

@@ -191,11 +191,6 @@ nav:hover {
     margin-bottom: 20px !important;
 }
 
-.my_top_navbar_div {
-    height: 60px;
-    line-height: 50px;
-}
-
 .my_custom_menu {
     text-align: right !important;
 }
@@ -204,9 +199,8 @@ nav:hover {
     list-style: none;
     color: #000;
     text-transform: uppercase;
-    letter-spacing: .2em;
+    letter-spacing: 1em;
     font-size: 12px;
-    padding-right: 20px;
     display: inline;
 }
 
@@ -221,6 +215,12 @@ nav:hover {
 
 .my-sign-up-form {
     padding: 1em;
-    background-color: transparent;
-    --bs-bg-opacity: 0;
+}
+
+.bold-link {
+    font-weight: bold;
+}
+
+.bold-link:hover {
+    color: rgb(183, 101, 115);
 }
