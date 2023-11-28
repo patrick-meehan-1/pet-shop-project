@@ -177,3 +177,7 @@ nav:hover {
 .cart-button:hover {
     box-shadow: 0 0 3px #e0e3e4, 0 0 5px #b300ff;
 }
+
+.left-pad {
+    padding-left: 2em;
+}

@@ -20,7 +20,7 @@
     <a class="nav-link" href="#">Your Cart</a>
     </li>
     </ul>
-    <form class="d-flex" action="" method="get">
+    <form class="d-flex" action="{% url 'search_app:searchResult' %}" method="get">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
