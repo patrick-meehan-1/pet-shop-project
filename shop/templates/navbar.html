@@ -1,3 +1,4 @@
+{% load auth_extras %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" ariacontrols="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,6 +15,9 @@
     {% for cat in links %}
     <li><a class="dropdown-item" href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
     {% endfor %}
+    {% if user|has_group:"Manager" %}
+    <li><a class="dropdown-item" href="{% url 'shop:product_create' %}">Add New Products</a></li>
+    {% endif %}
     </ul>
     </li>
     <li class="nav-item">
