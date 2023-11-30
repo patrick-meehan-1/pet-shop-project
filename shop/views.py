@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from .models import Category, Product, Review
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from .forms import ReviewForm
+from django.shortcuts import get_object_or_404, render, redirect
 
 # Create your views here.
 def prod_list(request, category_id=None):
@@ -33,3 +35,22 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     model = Product
     fields = ['name', 'description',  'category', 'price', 'image', 'stock', 'available', 'pet']
     template_name = 'shop/new_product.html'
+
+def add_review(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        author = request.user
+        review = form.cleaned_data['review']
+        commentObject = Review(product=product, review=review, author=author)
+        commentObject.save()
+
+        return redirect('shop:product_detail')
+    
+    form = ReviewForm()
+    context = {
+        "review": review,
+        "form": form
+    }
+
+    return render(request, '', context)

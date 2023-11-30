@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
 from django.urls import reverse
+from accounts.models import CustomUser
+
 
 class Category(models.Model):
     id = models.UUIDField(
@@ -68,3 +70,21 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Review(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+    )
+    review = models.CharField(max_length=140)
+    author = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.review
+    
+    def get_absolute_url(self):
+        return reverse('shop:product_detail')
