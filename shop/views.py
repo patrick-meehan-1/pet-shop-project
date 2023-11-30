@@ -37,8 +37,8 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     fields = ['name', 'description',  'category', 'price', 'image', 'stock', 'available', 'pet']
     template_name = 'shop/new_product.html'
 
-def add_review(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def add_review(request, category_id, product_id):
+    product = get_object_or_404(Product, id=product_id, category_id=category_id)
     form = ReviewForm(request.POST)
     if form.is_valid():
         author = request.user
@@ -46,7 +46,7 @@ def add_review(request, pk):
         reviewObject = Review(product=product, review=review, author=author)
         reviewObject.save()
 
-        return redirect('shop:all_products')
+        return redirect('shop:product_detail', category_id=category_id, product_id=product_id)
 
         
     
