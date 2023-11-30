@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from .models import Category, Product, Review
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.views.generic.edit import CreateView
@@ -42,15 +43,16 @@ def add_review(request, pk):
     if form.is_valid():
         author = request.user
         review = form.cleaned_data['review']
-        commentObject = Review(product=product, review=review, author=author)
-        commentObject.save()
+        reviewObject = Review(product=product, review=review, author=author)
+        reviewObject.save()
 
-        return redirect('shop:product_detail')
+        return redirect('shop:all_products')
+
+        
     
     form = ReviewForm()
     context = {
-        "review": review,
+        "product": product,
         "form": form
     }
-
-    return render(request, '', context)
+    return render(request, 'new_review.html', context)

@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from django.urls import reverse
 from accounts.models import CustomUser
+from django.contrib.auth import get_user_model
 
 
 class Category(models.Model):
@@ -79,7 +80,7 @@ class Review(models.Model):
     )
     review = models.CharField(max_length=140)
     author = models.ForeignKey(
-        CustomUser,
+        get_user_model(),
         on_delete=models.CASCADE,
     )
 

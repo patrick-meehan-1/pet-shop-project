@@ -35,10 +35,10 @@
 
 {# ADD REVIEW  #}
  <h1>Leave a Review</h1>
- <a class = "a_hover_color" href="{% url 'add_review' product.pk %}">Review</a>
+ <a class = "a_hover_color" href="{% url 'shop:add_review' product.pk %}">Review</a>
 
  {# OTHER REVIEWS #}
- {% for review in review.reviews.all %}
+ {% for review in product.reviews.all %}
  <p>
  <span class="font-weight-bold">{{ review.author }} &middot;</span>
  {{ review }}
