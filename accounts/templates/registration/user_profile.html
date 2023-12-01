@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock title %}
+{% block content %}
+<br/>
+
+
+ <div class="container">
+    <br>
+    <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+    <div class="mid-width: 18rem;">
+    <img class="profile_img" src="{{user.profile.pet_image.url}}" alt="{{profile.name}}">
+    </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="left-pad">
+    <h1 class="my_prod_title">{{user.profile.pet_name}}</h1>
+    <p>Age: {{ user.profile.pet_age }}</p>
+    <p>Owner: {{ user.username }}</p>
+    </div>
+</div>
+{% endblock content %}

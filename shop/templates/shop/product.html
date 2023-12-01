@@ -23,16 +23,15 @@
  <div class="col-12 col-sm-12 col-md-12 col-lg-6">
  <div class="left-pad">
  <h1 class="my_prod_title">{{product.name}}</h1>
- <p>€{{product.price}}</p>
- <p class="my_title">Product Description</p>
+ <h2>€{{product.price}}</h2>
+ <br>
+ <h5 class="my_title">Product Description</h5>
  <p class="text-justify my_prod_text">{{product.description}}</p>
  {% if product.stock == 0%}
  <p><b>Out of Stock</b></p>
  {% else %}
  <a class="cart-button btn btn-secondary" href="">Add to Cart</a>
  {% endif %}
-
-
 {# ADD REVIEW  #}
 {% if request.user.is_authenticated %}
  <h1 class="h1-review">Leave a Review</h1>
@@ -40,10 +39,10 @@
 {% endif %}
  {# OTHER REVIEWS #}
  {% for review in product.reviews.all %}
- <p>
- <span class="font-weight-bold">{{ review.author }} &middot;</span>
- {{ review }}
- </p>
+ <p class="fst-italic">
+ <span class="fw-bold">&middot;{{ review.author }}</span>
+ "{{ review }}"</p>
+ <br>
  {% endfor %}
  </div>
  </div>

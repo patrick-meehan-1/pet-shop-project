@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic import CreateView, UpdateView, DetailView
 from django.contrib.auth.models import Group
 from .forms import CustomUserCreationForm
-from .models import CustomUser
+from .models import CustomUser, Profile
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
@@ -20,3 +20,12 @@ class SignUpView(CreateView):
             return redirect('login')
         else:
             return render(request, self.template_name, {'form' : form })
+
+class ProfileEditView(UpdateView):
+    model = Profile
+    template_name = 'registration/edit_profile.html'
+    fields = ['pet_image', 'pet_name', 'pet_age']
+
+class ProfilePageView(DetailView):
+    model = Profile
+    template_name = 'registration/user_profile.html'

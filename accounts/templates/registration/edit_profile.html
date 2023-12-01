@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+ <h1>Edit Profile</h1>
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+{{ form|crispy }}
+<button class="btn btn-success ml-2" type="submit">Save</button>
+</form>
+{% else %}
+You're not allowed here
+{% endif %}
+{% endblock content %}
+
+{% comment %} <div class="mx-auto">
+    <br />
+    <h1 class="my_title text-center">Create a new account</h1>
+    <br />
+    <div class="my-sign-up-form col-9 col-sm-9 col-md-6 col-lg-5 mx-auto">
+      <br />
+      <p>Enter the following information to create a new account.</p>
+      <form method="post">
+        <p>{{ form | crispy }}</p>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">
+          Register Account
+        </button>
+      </form>
+      <br />
+    </div>
+  </div> {% endcomment %}
