@@ -3,6 +3,8 @@ import uuid
 from django.urls import reverse
 from accounts.models import CustomUser
 from django.contrib.auth import get_user_model
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 
 class Category(models.Model):
@@ -49,6 +51,10 @@ class Product(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
+    image_thumbnail = ImageSpecField(source='image',
+                                     processors=[ResizeToFill(250,250)],
+                                     format='JPEG',
+                                     options={'quality':100})
     name = models.CharField(max_length=250, unique=True)
     description = models.TextField(blank = True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

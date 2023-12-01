@@ -100,10 +100,6 @@ body {
     text-transform: uppercase;
 }
 
-.cat_image_padding {
-    padding-top: 5px;
-}
-
 .banner_img {
     box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
