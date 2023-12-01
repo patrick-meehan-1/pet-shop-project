@@ -224,3 +224,14 @@ nav:hover {
 .bold-link:hover {
     color: rgb(183, 101, 115);
 }
+
+.btn.btn-success {
+    color: black;
+    font-weight: bold;
+    background-color: pink;
+    border-color: pink;
+}
+
+.btn.btn-success:hover {
+    background-color: rgb(167, 118, 126);
+}

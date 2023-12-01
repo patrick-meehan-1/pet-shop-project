@@ -2,37 +2,45 @@
 {% load bootstrap_icons %}
 
 <header>
-
- <div style="text-align: center;">
+  <div style="text-align: center;">
     <a href="{% url 'shop:all_products' %}">
- <div class="container">
-   <div class="my_custom_menu">
-       <ul>
-         <li>
-            <img class="header_img" src="{% static 'images/panda_wave.gif' %}" alt="Happy Panda Pet Store">
-         </li>
-           {% if user.is_authenticated %}
-           <li>
-               Welcome, <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" 
-               aria-haspopup="true" aria-expanded="false">{{ user.username }} 
-               <i class="fas fa-user-circle"></i></a>
-           </li>
-           <li>
-               <a class="bold-link" href="{% url 'logout' %}">Sign Out <i class="fas fa-sign-out-alt"></i></a>
-           </li>
-           {% else %}
-           <li>
-               <a class="bold-link" href="{% url 'signup' %}">Sign Up <i class="fa-solid fa-plus fa-bounce" style="color: #db80d3;"></i></a>
-           </li>
-           <li>
-               <a class="bold-link" href="{% url 'login' %}">Sign In<i class="fa-solid fa-right-to-bracket fa-bounce" style="color: #c398d2;"></i></a>
-           </li>
-           {% endif %}
-       </ul>
-       
-   </div>
-</div>
-
- </div>
- <script src="https://kit.fontawesome.com/7ae8cc277d.js" crossorigin="anonymous"></script>
+      <div class="container">
+        <div class="my_custom_menu">
+          <ul>
+            <li>
+              <img class="header_img" src="{% static 'images/panda_wave.gif' %}" alt="Happy Panda Pet Store">
+            </li>
+            {% if user.is_authenticated %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">
+                Welcome, {{ user.username }} <i class="fas fa-user-circle"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Add dropdown menu items here -->
+                <li><a href="{% url 'password_change' %}">Change Password</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{% url 'logout' %}">Sign Out<i class="fas fa-sign-out-alt"></i></a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li>
+              <a class="bold-link" href="{% url 'signup' %}">Sign Up <i class="fa-solid fa-plus fa-bounce"
+                  style="color: #db80d3;"></i></a>
+            </li>
+            <li>
+              <a class="bold-link" href="{% url 'login' %}">Sign In<i class="fa-solid fa-right-to-bracket fa-bounce"
+                  style="color: #c398d2;"></i></a>
+            </li>
+            <li>
+                <a class="bold-link" href="{% url 'password_reset' %}">Forgot Password?<i class="fa-solid fa-right-to-bracket fa-bounce"
+                    style="color: #c398d2;"></i></a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </a>
+  </div>
+  <script src="https://kit.fontawesome.com/7ae8cc277d.js" crossorigin="anonymous"></script>
 </header>
