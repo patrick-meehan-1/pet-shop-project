@@ -35,8 +35,8 @@
 
 {# ADD REVIEW  #}
 {% if request.user.is_authenticated %}
- <h1>Leave a Review</h1>
- <a class = "a_hover_color" href="{% url 'shop:add_review' product.category.id product.id %}">Review</a>
+ <h1 class="h1-review">Leave a Review</h1>
+ <a class = "cart-button btn btn-secondary a_hover_color" href="{% url 'shop:add_review' product.category.id product.id %}">Review</a>
 {% endif %}
  {# OTHER REVIEWS #}
  {% for review in product.reviews.all %}

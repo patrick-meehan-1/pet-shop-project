@@ -235,3 +235,7 @@ nav:hover {
 .btn.btn-success:hover {
     background-color: rgb(167, 118, 126);
 }
+
+.h1-review {
+    padding-top: 2em;
+}
