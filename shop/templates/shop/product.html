@@ -8,6 +8,8 @@
  {{ product.name }} - Happy Panda Pet Store
 {% endblock %}
 {% block content %}
+
+
  <div class = "row my_prod_row_class">
  <div class = "mx-auto">
  <p><a class = "a_hover_color" href="{% url 'shop:all_products' %}">Home</a> | <a class = "a_hover_color" href="{{product.category.get_url }}">{{product.category}}</a> | {{product.name}}</p>
@@ -30,7 +32,7 @@
  {% if product.stock == 0%}
  <p><b>Out of Stock</b></p>
  {% else %}
- <a class="cart-button btn btn-secondary" href="">Add to Cart</a>
+ <a class="cart-button btn btn-secondary" href="{% url 'cart:add_to_cart' product.id %}">Add to Cart</a>
  {% endif %}
 {# ADD REVIEW  #}
 {% if request.user.is_authenticated %}
