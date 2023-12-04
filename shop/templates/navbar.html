@@ -1,4 +1,5 @@
 {% load auth_extras %}
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" ariacontrols="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +22,19 @@
     </ul>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="#">Your Cart</a>
+        <a class="nav-link" href="{% url 'cart:cart_detail' %}" id="cart-link">Your Cart</a>
+
     </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'cart:order_list' %}">Your Orders</a>
+    </li>
+    {% endif %}
+    
     </ul>
+    
+
     <form class="d-flex" action="{% url 'search_app:searchResult' %}" method="get">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
