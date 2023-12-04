@@ -23,7 +23,7 @@
                 <td>€{{ item.product.price }}</td>
                 <td>€{{ item.sub_total }}</td>
                 <td>
-                    <a href="{% url 'cart:remove_from_cart' item.product.id %}" style="box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; color: white; font-weight: bold; background-color: pink; border-color: pink; text-decoration: none; padding: 3px 10px; border-radius: 2em;">Remove</a>
+                    <a href="{% url 'cart:remove_from_cart' item.product.id %}" style="box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; color: white; font-weight: bold; background-color: pink; border-color: pink; text-decoration: none; padding: 3px 10px; border-radius: 2em; margin-right: 10px; margin-bottom: 5px; display: inline-block; font-size: 12px;">Remove</a>
                 </td>
             </tr>
             {% endfor %}
