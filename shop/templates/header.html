@@ -22,9 +22,14 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="{% url 'logout' %}">Sign Out<i class="fas fa-sign-out-alt"></i></a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="{% url 'show_profile' user.profile.id %}">View Profile<i class="fas fa-sign-out-alt"></i></a></li>
+                {% if user.is_authenticated and user.profile %}
+    <li><a href="{% url 'accounts:' user.profile.id %}">View Profile<i class="fas fa-sign-out-alt"></i></a></li>
+    {% endif %}
+
                 <li role="separator" class="divider"></li>
+                {% if user.is_authenticated and user.profile %}
                 <li><a href="{% url 'edit_profile' user.profile.id %}">Edit Profile<i class="fas fa-sign-out-alt"></i></a></li>
+                {% endif %}
               </ul>
             </li>
             {% else %}

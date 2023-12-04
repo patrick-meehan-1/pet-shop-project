@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 600px; margin: auto; border-radius: 2em; box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(149, 152, 156, 1) 100%); padding: 20px; text-align: center;">
+    <h1 style="font-size: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: .1em; padding-top: 15px; padding-bottom: 10px;">Your Orders</h1>
+    <ul style="list-style: none; padding: 0;">
+        {% for order in orders %}
+        <li style="margin-bottom: 10px;">
+            <a href="{% url 'cart:order_detail' order.id %}" style="color: #D24D57; font-weight: bold; text-decoration: none;">
+                Order Number: {{ order.id }} - Date: {{ order.created_at|date:"Y-m-d" }}
+            </a>
+        </li>
+        {% empty %}
+        <li style="font-weight: bold;">No orders found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
