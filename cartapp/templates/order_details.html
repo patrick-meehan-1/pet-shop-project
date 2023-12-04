@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 600px; margin: auto; border-radius: 2em; box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(149, 152, 156, 1) 100%); padding: 20px; text-align: center;">
+    <h1 style="font-size: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: .1em; padding-top: 15px; padding-bottom: 10px;">Order Confirmation</h1>
+    {% if order %}
+        <p style="font-weight: bold;">Thank you for your purchase!</p>
+        <p style="font-weight: bold;">Order ID: {{ order.id }}</p>
+        <p style="font-weight: bold;">Order Total: €{{ order.order_total }}</p>
+
+    {% else %}
+        <p>There was a problem with your order.</p>
+    {% endif %}
+</div>
+{% endblock %}
