@@ -29,8 +29,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_bootstrap_icons',
     'imagekit',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +66,11 @@ ROOT_URLCONF = 'onlineshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('accounts/templates'))],
+         # inclides cartapp template
+         'DIRS': [
+            str(BASE_DIR.joinpath('accounts/templates')),
+            str(BASE_DIR.joinpath('cartapp/templates')),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,3 +155,10 @@ LOGOUT_REDIRECT_URL = 'shop:all_products'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+PAYMENT_BACKENDS = {
+    'default': 'payments.dummy.DummyProvider',
+    'stripe': 'payments.stripe.StripeProvider',
+}
+
