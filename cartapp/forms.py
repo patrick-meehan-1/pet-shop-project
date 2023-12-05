@@ -10,7 +10,7 @@ class MyPaymentForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'type': 'tel', 'pattern': '\\d*'})
     )
     expiration_date = forms.DateField(
-        label='Expiration Date (mm/dd/yyyy)',
+        label='Expiration Date (mm/yyyy)',
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'mm/yyyy'})
     )
