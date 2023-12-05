@@ -12,7 +12,7 @@ class MyPaymentForm(forms.ModelForm):
     expiration_date = forms.DateField(
         label='Expiration Date (mm/dd/yyyy)',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'mm/dd/yyyy'})
+        widget=forms.TextInput(attrs={'placeholder': 'mm/yyyy'})
     )
     cvv = forms.IntegerField(label='CVV', max_value=999999, required=True)
 
