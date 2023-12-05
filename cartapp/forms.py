@@ -9,10 +9,10 @@ class MyPaymentForm(forms.ModelForm):
         validators=[MinValueValidator(0), MaxValueValidator(9999999999999999)],
         widget=forms.TextInput(attrs={'type': 'tel', 'pattern': '\\d*'})
     )
-    expiration_date = forms.DateField(
-        label='Expiration Date (mm/yyyy)',
+    expiration_date = forms.CharField(
+        label='Expiration Date (mm/yy)',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'mm/yyyy'})
+        widget=forms.TextInput(attrs={'placeholder': 'mm/yy'})
     )
     cvv = forms.IntegerField(label='CVV', max_value=999999, required=True)
 
